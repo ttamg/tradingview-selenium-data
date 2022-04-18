@@ -18,7 +18,7 @@ from helium import (
 
 LONG = 1.5
 SHORT = 0.25
-LOAD = 10
+LOAD = 5
 
 
 class TradingView:

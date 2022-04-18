@@ -62,6 +62,10 @@ See the Python code in that module for details
 
 See the example scripts in the `scripts` folder for examples on how to scrape data.
 
+If all is set up correctly the `00_example.py` file should run the script by calling
+
+    python 00_example.py
+
 ## Issues
 
 Note that the asset given picks up the top of the list asset with that ticker. On TradingView there are many assets options with the same ticker so this may not pick up quite what you want. It is not obvious how this can be improved without significant work.
