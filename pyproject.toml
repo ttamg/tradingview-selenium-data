@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "tradingview-selenium-data"
+version = "0.1.0"
+description = "Simple TradingView scripts using Python Helium (Selenium) to scrape data from TradingView for ML training"
+authors = ["Matt Gosden <mdgosden@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/ttamg/tradingview-selenium-data"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4.0"
+helium = "^3.0.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.1"
+pylint = "^2.13.5"
+black = "^22.3.0"
+jupyterlab = "^3.3.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
