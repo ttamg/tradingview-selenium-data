@@ -1,6 +1,6 @@
 from common.run import run
 
-PERIODICITIES = ["60", "4H", "1D", "3D"]
+PERIODICITIES = ["15", "60", "4H", "12H", "1D", "3D", "1W"]
 
 ASSETS = [
     "ADAUSDT",
