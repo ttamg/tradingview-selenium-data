@@ -14,7 +14,7 @@ Why use TradingView?
 
 - It allows you to work together with others that use TradingView or Pinescript for building out potential strategies and indicators
 
-> **Warning** - Scraping data this way does not seem to be against [TradingView's current use policy](https://www.tradingview.com/policies/) but that might change. So check the use policy. And in any event, excessive scraping of any data is not the polite thing to do so keep this to the minimum and do so sparingly.
+> _WARNING_ - Scraping data this way does not seem to be against [TradingView's current use policy](https://www.tradingview.com/policies/) but that might change. So check the use policy. And in any event, excessive scraping of any data is not the polite thing to do so keep this to the minimum and do so sparingly.
 
 ## Getting started
 
@@ -34,27 +34,31 @@ Clone the repo
 
     git clone https://github.com/ttamg/tradingview-selenium-data.git
 
-Install using poetry. From the cloned project directory
+Either, install using poetry. From the cloned project directory
 
     poetry install
 
-Or alternatively install using pip from the cloned project director
+Or alternatively install using pip from the cloned project directory
 
     pip install -r requirements.txt
 
 ## Scraping data
 
-The scripts us the `TradingView` class that is in the `scripts.common` module.
+The scripts use the `TradingView` class that is in the `scripts.common.tradingview` module.  This is a simple set of **helium** methods that interact with the **TradingView** UI
 
-This has methods that do the following:
+The `TradingView` class has methods that do the following:
 
 - Connect to TradingView and log in
-- Move to the chart layout you wish to download
+- Navigate to the chart layout you wish to download (with all the indicators you have defined)
 - Switch the asset or periodicity of the candles
-- Scroll to load the candles from a particular start date
+- Scroll to load the candles from a particular start date (so as to fetch more data)
 - Download the data as CSV
 
-See the Python code in that module for details
+The class does not do anything particularly special beyond scraping and replicates what you would do with the UI yourself in the browser.  
+
+The `run()` method in the `scripts.common.run` module is a method that loops over the assets and periodicities you provide to fetch and download the market data you require.  It calls the `TradingView` class at the relevant points. 
+
+See the Python code in `scripts.common` for more information.
 
 > _NOTE_ - some of the HTML tags on TradingView are a bit brittle so this may need some tweaks from time to time as TradingView update their UI.
 
@@ -62,7 +66,7 @@ See the Python code in that module for details
 
 See the example scripts in the `scripts` folder for examples on how to scrape data.
 
-If all is set up correctly the `00_example.py` file should run the script by calling
+If all is set up correctly with your chromedriver the `00_example.py` file should run the script and download a few test CSV files
 
     python 00_example.py
 
