@@ -24,14 +24,18 @@ LOAD = 5
 class TradingView:
     @staticmethod
     def sign_in(
-        username: str, password: str, url: str = "https://tradingview.com", options=None
+        username: str,
+        password: str,
+        url: str = "https://tradingview.com",
+        options=None,
+        headless=False,
     ):
         """Sign into Tradingview"""
 
         if options is not None:
-            start_chrome(url, maximize=True, options=options)
+            start_chrome(url, maximize=True, headless=headless, options=options)
         else:
-            start_chrome(url, maximize=True)
+            start_chrome(url, maximize=True, headless=headless)
         click("open user menu")
         click("Sign in")
         click("Email")

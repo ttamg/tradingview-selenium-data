@@ -4,7 +4,7 @@ from .tradingview import TradingView
 DATE = "19500101"
 
 
-def run(assets: list, periodicities: list, from_date=DATE):
+def run(assets: list, periodicities: list, from_date=DATE, headless=False):
     """
     Scrapes the maximum amount of candles available into a CSV file
     for the assets provided and for all the candle periodicities
@@ -24,7 +24,7 @@ def run(assets: list, periodicities: list, from_date=DATE):
         options = TradingView.set_download_folder(f"/{download_to}/")
     else:
         options = None
-    TradingView.sign_in(username, password, options=options)
+    TradingView.sign_in(username, password, options=options, headless=headless)
     TradingView.open_layout(chart_url)
 
     for asset in assets:
